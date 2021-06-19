@@ -67,6 +67,7 @@ export default {
 
             try {
                 this.notification = "Pegawai Berhasil Diganti"
+                this.$router.push({name : "home"})
             } catch (error) {
                 console.log(error)
             }        

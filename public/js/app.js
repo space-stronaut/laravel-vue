@@ -2014,6 +2014,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "create",
   data: function data() {
@@ -2027,7 +2031,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         golongan: "",
         agenda_id: null
       },
-      notification: ""
+      notification: []
     };
   },
   methods: {
@@ -2041,24 +2045,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 e.preventDefault();
-                _context.next = 3;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios.post('/users/create', _this.forms);
 
-              case 3:
+              case 4:
                 response = _context.sent;
+                alert("Pegawai Berhasil Dibuat");
 
-                try {
-                  _this.notification = "Pegawai Berhasil Dibuat";
-                } catch (error) {
-                  console.log(error);
-                }
+                _this.$router.push({
+                  name: "home"
+                });
 
-              case 5:
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](1);
+                _this.notification = _context.t0.response.data.errors;
+
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[1, 9]]);
       }))();
     },
     dash: function dash() {
@@ -2134,6 +2146,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 if (response.status === 200) {
                   console.log("Data Berhasil Dihapus");
+
+                  _this.$router.push({
+                    name: "home"
+                  });
                 }
 
               case 6:
@@ -2256,6 +2272,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 try {
                   _this2.notification = "Pegawai Berhasil Diganti";
+
+                  _this2.$router.push({
+                    name: "home"
+                  });
                 } catch (error) {
                   console.log(error);
                 }
@@ -2480,6 +2500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   routes: [{
     path: "",
+    name: "home",
     component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__.default
   }, {
     path: "/about",
@@ -39841,7 +39862,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n    " + _vm._s(_vm.notification) + "\n    "),
     _c("div", { staticClass: "card p-4", staticStyle: { width: "35rem" } }, [
       _c("form", { on: { submit: _vm.input } }, [
         _c("div", { staticClass: "mb-3" }, [
@@ -39867,7 +39887,13 @@ var render = function() {
                 _vm.$set(_vm.forms, "nama", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.notification.nama
+            ? _c("label", { staticClass: "text-danger", attrs: { for: "" } }, [
+                _vm._v(_vm._s(_vm.notification.nama[0]))
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-3" }, [
@@ -39894,7 +39920,13 @@ var render = function() {
                 _vm.$set(_vm.forms, "nip", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.notification.nip
+            ? _c("label", { staticClass: "text-danger", attrs: { for: "" } }, [
+                _vm._v(_vm._s(_vm.notification.nip[0]))
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-3" }, [
@@ -39920,7 +39952,13 @@ var render = function() {
                 _vm.$set(_vm.forms, "bidang", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.notification.bidang
+            ? _c("label", { staticClass: "text-danger", attrs: { for: "" } }, [
+                _vm._v(_vm._s(_vm.notification.bidang[0]))
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-3" }, [
@@ -39962,7 +40000,13 @@ var render = function() {
               _vm._v(" "),
               _c("option", { attrs: { name: "jabatan" } }, [_vm._v("Kasubag")])
             ]
-          )
+          ),
+          _vm._v(" "),
+          _vm.notification.jabatan
+            ? _c("label", { staticClass: "text-danger", attrs: { for: "" } }, [
+                _vm._v(_vm._s(_vm.notification.jabatan[0]))
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-3" }, [
@@ -39988,7 +40032,13 @@ var render = function() {
                 _vm.$set(_vm.forms, "golongan", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.notification.golongan
+            ? _c("label", { staticClass: "text-danger", attrs: { for: "" } }, [
+                _vm._v(_vm._s(_vm.notification.golongan[0]))
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(

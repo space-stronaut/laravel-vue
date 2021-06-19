@@ -37,6 +37,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "nama" => "required",
+            "nip" => "required|unique:workers|min:21|numeric",
+            "golongan" => "required",
+            "bidang" => "required",
+            "jabatan" => "required",
+        ]);
+
         $worker = Worker::create([
             'nama' => $request->nama,
             'nip' => $request->nip,

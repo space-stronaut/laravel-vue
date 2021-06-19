@@ -23,6 +23,7 @@ export default {
 
                 if(response.status === 200){
                     console.log("Data Berhasil Dihapus")
+                    this.$router.push({name : "home"})
                 }   
             }
         }
