@@ -37,7 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $worker = Worker::create([
+            'nama' => $request->nama,
+            'nip' => $request->nip,
+            'golongan' => $request->golongan,
+            'jabatan' => $request->jabatan,
+            'bidang' => $request->bidang,
+        ]);
+
+        return response()->json($worker);
     }
 
     /**

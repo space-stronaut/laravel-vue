@@ -2,6 +2,7 @@
   <div>
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
+      <router-link to="/create">Create</router-link>
       <router-view></router-view>
   </div>
 </template>
@@ -12,6 +13,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  div router-link{
+    color : green;
+  }
 </style>
