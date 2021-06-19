@@ -81,7 +81,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $worker = Worker::find($id)->update([
+            'nama' => $request->nama,
+            'nip' => $request->nip,
+            'golongan' => $request->golongan,
+            'jabatan' => $request->jabatan,
+            'bidang' => $request->bidang,
+        ]);
+
+        return response()->json($worker);
     }
 
     /**
@@ -92,6 +100,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $workers = Worker::find($id)->delete();
+
+        return response()->json($workers);
     }
 }

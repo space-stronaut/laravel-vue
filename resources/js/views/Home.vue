@@ -3,6 +3,7 @@
       <router-link to="/create">Tambah</router-link>
       <ul v-for="user in users" :key="user.id">
           <li><router-link :to="{name : 'detail', params : {id : user.id}}">{{user.nama}}</router-link></li>
+          <p><router-link :to="{name : 'edit', params : {id : user.id}}">Edit</router-link></p>
       </ul>
   </div>
 </template>
@@ -12,7 +13,7 @@ export default {
     name : "Home",
     data() {
         return {
-            users: []
+            users: [],
         }
     },
     mounted () {

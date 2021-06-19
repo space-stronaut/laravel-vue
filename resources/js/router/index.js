@@ -3,6 +3,7 @@ import Home from "../views/Home.vue"
 import About from "../views/About.vue"
 import Detail from "../views/Detail.vue"
 import Create from "../views/Create.vue"
+import Edit from "../views/Edit.vue"
 
 export default{
     routes : [
@@ -23,6 +24,11 @@ export default{
             path: "/create",
             name : "create",
             component : Create
+        },
+        {
+            path: "/edit/:id",
+            name: "edit",
+            component: Edit
         }
     ],
 }
